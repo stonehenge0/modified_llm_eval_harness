@@ -1,5 +1,5 @@
 # flatten the original data to one columns, since it initially has one column per language prompt.
-def flatten_multilingual_csv(dataset):
+def process_docs(dataset):
     language_columns = ["en", "zh", "it", "vi", "ar", "ko", "th", "bn", "sw", "jv"]
 
     new_rows = []
