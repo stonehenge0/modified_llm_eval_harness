@@ -16,7 +16,7 @@ validation_split: null
 training_split: null
 fewshot_split: null
 
-preprocess: !function utils.flatten_multilingual_csv
+process_docs: !function utils.process_docs
 
 doc_to_text: "{{prompt}}"
 doc_to_target: null
