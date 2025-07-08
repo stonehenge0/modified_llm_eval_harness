@@ -11,7 +11,7 @@ dataset_kwargs: null # any extra keyword arguments that should be passed to the 
 
 
 # MultiJail doesn' really have a split, we just want to generate completions over the entire dataset. 
-test_split: null
+test_split: train
 validation_split: null
 training_split: null
 fewshot_split: null
