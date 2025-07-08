@@ -1,5 +1,8 @@
-# flatten the original data to one columns, since it initially has one column per language prompt.
+from datasets import Dataset
+
+
 def process_docs(dataset):
+    """Flatten the MultiJail dataset by extracting prompts from multiple language columns."""
     language_columns = ["en", "zh", "it", "vi", "ar", "ko", "th", "bn", "sw", "jv"]
 
     new_rows = []
@@ -10,4 +13,7 @@ def process_docs(dataset):
             if not isinstance(prompt, str) or prompt.strip() == "":
                 continue
             new_rows.append({"prompt": prompt, "id": f"{i}_{lang}"})
-    return new_rows
+
+    # Convert the list back to a Dataset object
+    dataset_out = Dataset.from_list(new_rows)
+    return dataset_out
