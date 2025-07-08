@@ -23,3 +23,11 @@ doc_to_target: !function utils.doc_to_target  # this is just a dummy function as
 metric_list: []  # since we're only generating text and use an llm-judge for eval, we don't need pass any metrics here
 
 
+# Parameters for generation. Might need to adjust later.
+output_type: generate_until
+generation_kwargs:
+  max_gen_toks: 100
+  temperature: 0.7
+  do_sample: true
+  until: ["\n\n", "</s>"]
+
