@@ -1,0 +1,25 @@
+# load MultiJail dataset from HF hub.
+task: multijail  # identifier
+tag:
+  - multilingual
+  - safety
+  - refusal
+  - generation
+dataset_path: DAMO-NLP-SG/MultiJail # the name of the dataset on the HF Hub.
+dataset_name: null # the dataset configuration to use. Leave `null` if your dataset does not require a config to be passed. See https://huggingface.co/docs/datasets/load_hub#configurations for more info.
+dataset_kwargs: null # any extra keyword arguments that should be passed to the dataset constructor, e.g. `data_dir`.
+
+
+# MultiJail doesn' really have a split, we just want to generate completions over the entire dataset. 
+test_split: null
+validation_split: null
+training_split: null
+fewshot_split: null
+
+preprocess: !function utils.flatten_multilingual_csv
+
+doc_to_text: "{{prompt}}"
+doc_to_target: null
+metric_list: []  # since we're only generating text and use an llm-judge for eval, we don't need pass any metrics here
+
+
