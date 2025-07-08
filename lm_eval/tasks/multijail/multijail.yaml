@@ -19,7 +19,7 @@ fewshot_split: null
 process_docs: !function utils.process_docs
 
 doc_to_text: "{{prompt}}"
-doc_to_target: null
+doc_to_target: !function utils.doc_to_target  # this is just a dummy function as we'll evaluate outside llm_eval
 metric_list: []  # since we're only generating text and use an llm-judge for eval, we don't need pass any metrics here
 
 
